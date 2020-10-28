@@ -33,7 +33,7 @@ En vez de hacer el for loop desde j=k-1 hasta j=i, se hace un for loop desde j=j
 Vienen de la siguiente observación. Sea:
 > opt_j(k, i) = el primer índice j de izquierda a derecha donde DP(k,i) logra el óptimo.
 
-Ahora pensemos en un k fijo y sólo variemos el i (esto sería resolver la fila k-ésima de la tabla del DP). Si se cumple que opt_j(k,i) <= opt_j(k,i+1), entonces podemos usar opt_j(k,i-1) y opt_j(k,i+1) para acotar el rango de búsqueda del j óptimo para DP(k,j).
+Ahora pensemos en un k fijo y sólo variemos el i (esto sería resolver la fila k-ésima de la tabla del DP). Si se cumple que opt_j(k,i) <= opt_j(k,i+1), entonces podemos usar opt_j(k,i-1) y opt_j(k,i+1) para acotar el rango de búsqueda del j óptimo para DP(k,i).
 
 La idea de D&C DP es llenar las filas de la tabla del DP en orden (la fila k=0, k=1, etc.). La fila k=0 es el caso base, así que se puede llenar trivialmente con la función cost(i,j). Cada siguiente fila se puede llenar con una función recursiva con complejidad O(N log N). Como son N filas, esto da una complejidad final O(N^2 log N).
 
